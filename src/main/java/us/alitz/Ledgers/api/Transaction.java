@@ -12,5 +12,5 @@ public interface Transaction {
 	
 	public TransactionType getType();
 	
-	
+	public long getTransactionNumber();
 }

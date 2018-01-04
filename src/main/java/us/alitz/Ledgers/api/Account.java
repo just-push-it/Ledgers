@@ -28,7 +28,7 @@ public interface Account {
 	 * Updates the account description with the
 	 * provided value
 	 * 
-	 * @param newDescription	New description for the account
+	 * @param New description for the account
 	 */
 	public void setDescription(String newDescription);
 	
@@ -41,7 +41,7 @@ public interface Account {
 	 * either a data error, or an entry in the GL was manually updated without reflecting
 	 * the change on the Account Balances table.
 	 * 
-	 * @return current pre-calculated account balance
+	 * @return current account balance
 	 */
 	public double getBalance();
 	

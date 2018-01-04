@@ -15,4 +15,10 @@ public interface TransactionType {
 	 * @return transaction type description
 	 */
 	public String getDescription();
+	
+	/**
+	 * 
+	 * @return can transaction type be voided
+	 */
+	public boolean isVoidable();
 }
