@@ -1,4 +1,4 @@
-package us.alitz.Ledgers;
+package us.alitz.Ledgers.database;
 
 public interface ILedgerDatabase {
 	

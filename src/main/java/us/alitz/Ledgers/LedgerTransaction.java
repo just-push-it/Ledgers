@@ -7,28 +7,45 @@ import us.alitz.Ledgers.api.TransactionType;
 
 public class LedgerTransaction implements Transaction {
 	private final long transNumber;
-	private double transAmount;
+	private final double transAmount;
+	private final Account from;
+	private final Account to;
+	private final TransactionType type;
 	private TransactionStatus transStatus;
 	
+	private LedgerTransaction(Account from, Account to, TransactionType type, double amount, TransactionStatus status) {
+		this.from = from;
+		this.to = to;
+		this.type = type;
+		this.transAmount = amount;
+		this.transStatus = status;
+		
+		//TODO: Get next transaction number
+		this.transNumber = 0;
+	}
+	
 	public Account getFromAccount() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.from;
 	}
 	public Account getToAccount() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.to;
 	}
 	public double getAmount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.transAmount;
 	}
 	public TransactionStatus getStatus() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.transStatus;
 	}
 	public TransactionType getType() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.type;
+	}
+
+	public long getTransactionNumber() {
+		return this.transNumber;
+	}
+	
+	protected void setStatus(TransactionStatus newStatus) {
+		this.transStatus = newStatus;
 	}
 	
 	
