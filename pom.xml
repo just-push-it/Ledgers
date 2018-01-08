@@ -5,4 +5,21 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Ledgers</name>
   <description>Sponge economy plugin</description>
+ 
+ <repositories>
+ 	<repository>
+        <id>sponge</id>
+        <url>http://repo.spongepowered.org/maven</url>
+ 	</repository>
+ </repositories>
+ 
+ <dependencies>
+	<dependency>
+	    <groupId>org.spongepowered</groupId>
+	    <artifactId>spongeapi</artifactId>
+	    <version>5.0.0</version>
+	</dependency>
+</dependencies>
+
+  
 </project>
