@@ -69,11 +69,11 @@ public interface Database {
 	public ResultSet getPlayerBalances(UUID playerUUID);
 	
 	/**
-	 * Get a players balance for the main player GL account
+	 * Get a players balance for the given player balance GL account
 	 * 
-	 * @param playerUUID
-	 * @param accountNumber
-	 * @return
+	 * @param player UUID
+	 * @param GL account number
+	 * @return player balance for given player balance GL account
 	 */
 	public ResultSet getPlayerBalance(UUID playerUUID, int accountNumber);
 	
@@ -94,6 +94,11 @@ public interface Database {
 	 * @return complete transaction information
 	 */
 	public ResultSet createLedgerTransaction(double amount, int from, int to, TransactionType type);
+	
+	
+	public ResultSet commitLedgerTransction(long transNumber);
+	
+	public ResultSet cancelLedgerTransaction(long transNumber);
 	
 	public ResultSet createPlayerTransaction(double amount, UUID from, UUID to, int ledgerAccount, TransactionType type);
 	
