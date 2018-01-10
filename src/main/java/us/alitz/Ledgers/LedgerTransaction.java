@@ -13,15 +13,14 @@ public class LedgerTransaction implements Transaction {
 	private final TransactionType type;
 	private TransactionStatus transStatus;
 	
-	private LedgerTransaction(Account from, Account to, TransactionType type, double amount, TransactionStatus status) {
+	// Transaction objects should only be created by the ledger controller
+	private LedgerTransaction(long transNumber, Account from, Account to, TransactionType type, double amount, TransactionStatus status) {
 		this.from = from;
 		this.to = to;
 		this.type = type;
 		this.transAmount = amount;
 		this.transStatus = status;
-		
-		//TODO: Get next transaction number
-		this.transNumber = 0;
+		this.transNumber = transNumber;
 	}
 	
 	public Account getFromAccount() {

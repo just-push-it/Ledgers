@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.UUID;
 
+import us.alitz.Ledgers.api.TransactionType;
+
 public interface Database {
 	
 	/**
@@ -74,4 +76,30 @@ public interface Database {
 	 * @return
 	 */
 	public ResultSet getPlayerBalance(UUID playerUUID, int accountNumber);
+	
+	/**
+	 *  This method should not be called directly.
+	 *  Transactions need to be created in this order to prevent transaction number conflicts:
+	 *  1. LedgerController.createTransaction
+	 *  2. This method
+	 *  3. Return transaction result set, with transaction number
+	 *  4. LedgerControllers creates LedgerTransaction object
+	 *  
+	 *  Result set returns with transaction number, and a status of "P" for Pending
+	 *  
+	 * @param transaction amount
+	 * @param from account
+	 * @param to account
+	 * @param transaction type
+	 * @return complete transaction information
+	 */
+	public ResultSet createLedgerTransaction(double amount, int from, int to, TransactionType type);
+	
+	public ResultSet createPlayerTransaction(double amount, UUID from, UUID to, int ledgerAccount, TransactionType type);
+	
+	public ResultSet createAccount();
+	
+	public ResultSet createTransactionType();
+	
+	
 }
